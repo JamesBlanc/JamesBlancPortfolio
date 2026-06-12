@@ -12,9 +12,8 @@ export function GalleryPage() {
   return (
     <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
       <SectionBanner
-        eyebrow="Photos"
-        title="Performance Moments"
-        description="A clean, responsive photo grid inspired by editorial musician portfolios, built to look strong now and stay flexible when future images are added."
+        eyebrow="Gallery"
+        title="Moments Worth Capturing"
       />
       <section className="mt-12">
         <GalleryGrid items={galleryItems} />

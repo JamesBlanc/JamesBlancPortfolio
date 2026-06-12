@@ -9,11 +9,6 @@ export function Footer() {
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[1.2fr_0.8fr_0.8fr] lg:px-8">
         <div className="space-y-4">
           <LogoMark />
-          <p className="max-w-md text-sm leading-7 text-ink/70">
-            Jazz-rooted performance, modern production, and studio-ready sound
-            for events, artists, venues, and collaborators across South Florida
-            and beyond.
-          </p>
           <SocialLinks />
         </div>
         <div>

@@ -1,183 +1,148 @@
+import { ArrowUpRight, Play } from "lucide-react";
 import { useDocumentMeta } from "../hooks/useDocumentMeta";
 import { siteMeta } from "../data/siteContent";
-import { SectionBanner } from "../components/SectionBanner";
+
+const visionTracks = [
+  {
+    title: "WHAT YOU NEED",
+    src: "/audio/what-you-need.mp3",
+  },
+  {
+    title: "THE END",
+    src: "/audio/the-end.mp3",
+  },
+  {
+    title: "THANK YOU",
+    src: "/audio/thank-you.mp3",
+  },
+  {
+    title: "STAR LOVE",
+    src: "/audio/star-love.mp3",
+  },
+  {
+    title: "NO SLEEP",
+    src: "/audio/no-sleep.mp3",
+  },
+  {
+    title: "FEEL IT",
+    src: "/audio/feel-it.mp3",
+  },
+];
+
+const visionLinks = [
+  {
+    label: "YouTube",
+    title: "@1prodvision",
+    href: "https://www.youtube.com/@1prodvision",
+  },
+  {
+    label: "BeatStars",
+    title: "1prodvisionn",
+    href: "https://www.beatstars.com/1prodvisionn",
+  },
+];
 
 export function MusicPage() {
   useDocumentMeta(
     `Vi$ion | ${siteMeta.defaultTitle}`,
-    "Explore Vi$ion, the darker production alter ego of James Blanc, through video, beats, and creative direction."
+    "A dark, minimal listening page for Vi$ion featuring direct playback and official channel links."
   );
 
   return (
-    <div className="bg-[#0b0b0b] text-white">
+    <div className="min-h-screen bg-[#050505] text-white">
       <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-        <SectionBanner
-          eyebrow="Vi$ion"
-          title="Noir Production Identity"
-          description="A darker, more cinematic page built around James Blanc's production alter ego. The mood leans monochrome, minimal, and evocative, with the emphasis on atmosphere, beats, and visual identity."
-          theme="dark"
-        />
-        <section className="mt-12 grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
-          <div className="rounded-[2rem] border border-white/10 bg-[#141414] p-5 shadow-velvet">
-            <div className="grid gap-5 lg:grid-cols-[0.92fr_1.08fr]">
-              <div className="overflow-hidden rounded-[1.75rem]">
+        <div className="max-w-3xl">
+          <p className="text-xs font-bold uppercase tracking-[0.4em] text-white/55">
+            Vi$ion
+          </p>
+          <h1 className="mt-4 font-heading text-5xl uppercase tracking-[0.14em] text-white sm:text-6xl">
+            Independent Producer
+          </h1>
+        </div>
+
+        <section className="mt-12 grid gap-8 lg:grid-cols-[0.78fr_1.22fr]">
+          <article className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-4 shadow-velvet backdrop-blur">
+            <div className="grid gap-4">
+              <div className="overflow-hidden rounded-[1.6rem] border border-white/8 bg-black">
                 <img
-                  src="/images/studio-monochrome.jpg"
-                  alt="Black and white portrait of James Blanc holding a saxophone."
-                  className="h-full min-h-[420px] w-full object-cover grayscale"
+                  src="/images/vision-portrait.jpg"
+                  alt="Black and white portrait image for Vi$ion with James seated on playground equipment."
+                  className="h-full min-h-[320px] w-full object-cover grayscale"
                 />
               </div>
-              <div className="flex flex-col justify-between p-7">
-                <div>
-                  <p className="text-xs font-bold uppercase tracking-[0.38em] text-sand/70">
-                    Alter Ego
-                  </p>
-                  <h3 className="mt-4 font-heading text-6xl uppercase tracking-[0.14em] text-white">
-                    Vi$ion
-                  </h3>
-                  <p className="mt-5 max-w-xl text-base leading-8 text-white/72">
-                    Vi$ion is the production-facing side of James Blanc: moody
-                    textures, sharp rhythm choices, modern beat language, and a
-                    visual world that feels deliberate instead of loud.
-                  </p>
-                </div>
-                <div className="mt-8 grid gap-4 sm:grid-cols-3">
-                  <div className="min-h-[170px] rounded-[1.5rem] border border-white/10 bg-white/[0.03] p-5">
-                    <p className="text-xs font-bold uppercase tracking-[0.32em] text-sand/60">
-                      Mood
-                    </p>
-                    <p className="mt-4 text-[0.95rem] uppercase leading-10 tracking-[0.16em] text-white/84">
-                      Noir, spare, cinematic
-                    </p>
-                  </div>
-                  <div className="min-h-[170px] rounded-[1.5rem] border border-white/10 bg-white/[0.03] p-5">
-                    <p className="text-xs font-bold uppercase tracking-[0.32em] text-sand/60">
-                      Focus
-                    </p>
-                    <p className="mt-4 text-[0.95rem] uppercase leading-10 tracking-[0.16em] text-white/84">
-                      Beats, direction, texture
-                    </p>
-                  </div>
-                  <div className="min-h-[170px] rounded-[1.5rem] border border-white/10 bg-white/[0.03] p-5">
-                    <p className="text-xs font-bold uppercase tracking-[0.32em] text-sand/60">
-                      Energy
-                    </p>
-                    <p className="mt-4 text-[0.95rem] uppercase leading-10 tracking-[0.16em] text-white/84">
-                      Controlled, modern, haunting
-                    </p>
-                  </div>
-                </div>
+              <div className="overflow-hidden rounded-[1.6rem] border border-white/8 bg-black">
+                <img
+                  src="/images/vision-all-night-long.jpg"
+                  alt="Black and white Vi$ion image of James standing outdoors at night."
+                  className="h-full min-h-[420px] w-full object-cover object-center grayscale"
+                />
               </div>
             </div>
-          </div>
+          </article>
 
-          <div className="grid gap-6">
-            <article className="rounded-[2rem] border border-white/10 bg-[#141414] p-7 shadow-velvet">
-              <p className="text-xs font-bold uppercase tracking-[0.34em] text-sand/60">
-                Channel
+          <article className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 shadow-velvet backdrop-blur sm:p-8">
+            <div className="border-b border-white/10 pb-5">
+              <p className="text-xs font-bold uppercase tracking-[0.36em] text-white/55">
+                Playlist
               </p>
-              <h3 className="mt-3 font-heading text-4xl uppercase tracking-[0.12em] text-white">
-                Featured YouTube
-              </h3>
-              <p className="mt-4 text-base leading-8 text-white/72">
-                The visual tone here is meant to mirror the producer identity:
-                dark space, strong contrast, restrained accents, and a more
-                immersive tone than the main performance portfolio.
+              <p className="mt-3 text-sm uppercase tracking-[0.2em] text-white/45">
+                Selected tracks
               </p>
-              <a
-                href="https://www.youtube.com/@1prodvision/featured"
-                target="_blank"
-                rel="noreferrer"
-                className="mt-6 inline-flex items-center rounded-full bg-white px-5 py-3 text-sm font-extrabold uppercase tracking-[0.18em] text-black transition hover:-translate-y-1 hover:bg-sand"
-              >
-                Visit Vi$ion Channel
-              </a>
-            </article>
-            <article className="rounded-[2rem] border border-white/10 bg-[#141414] p-7 shadow-velvet">
-              <p className="text-xs font-bold uppercase tracking-[0.34em] text-sand/60">
-                Beat Store
-              </p>
-              <h3 className="mt-3 font-heading text-4xl uppercase tracking-[0.12em] text-white">
-                Beats & Drafts
-              </h3>
-              <p className="mt-4 text-base leading-8 text-white/72">
-                Use BeatStars as the storefront layer for Vi$ion. This block is
-                ready for an embed later if James wants visitors to audition
-                beats directly on the page.
-              </p>
-              <a
-                href="https://www.beatstars.com/1prodvisionn"
-                target="_blank"
-                rel="noreferrer"
-                className="mt-6 inline-flex items-center rounded-full border border-white/15 px-5 py-3 text-sm font-extrabold uppercase tracking-[0.18em] text-white transition hover:-translate-y-1 hover:border-sand hover:text-sand"
-              >
-                Open BeatStars
-              </a>
-            </article>
-          </div>
+            </div>
+
+            <div className="mt-6 grid gap-4">
+              {visionTracks.map((track, index) => (
+                <article
+                  key={track.title}
+                  className="rounded-[1.4rem] border border-white/8 bg-black/40 px-4 py-4"
+                >
+                  <div className="flex flex-col gap-4">
+                    <div className="flex items-start gap-4">
+                      <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/12 bg-white/[0.04] text-white/78">
+                        <Play className="h-4 w-4 fill-current" />
+                      </span>
+                      <div className="min-w-0">
+                        <p className="text-[0.65rem] font-bold uppercase tracking-[0.34em] text-white/38">
+                          Track {index + 1}
+                        </p>
+                        <h2 className="mt-2 font-heading text-2xl uppercase tracking-[0.12em] text-white sm:text-3xl">
+                          {track.title}
+                        </h2>
+                      </div>
+                    </div>
+                    <audio controls preload="none" className="w-full opacity-90">
+                      <source src={track.src} />
+                      Your browser does not support the audio player.
+                    </audio>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </article>
         </section>
 
-        <section className="mt-10 grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
-          <div className="rounded-[2rem] border border-white/10 bg-[#111111] p-5 shadow-velvet">
-            <div className="aspect-video overflow-hidden rounded-[1.5rem] bg-black">
-              <iframe
-                className="h-full w-full"
-                src="https://www.youtube.com/embed?listType=user_uploads&list=1prodvision"
-                title="Vi$ion YouTube"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
-            </div>
-          </div>
-          <div className="rounded-[2rem] border border-white/10 bg-[#111111] p-7 shadow-velvet">
-            <p className="text-xs font-bold uppercase tracking-[0.34em] text-sand/60">
-              Watch Vi$ion
-            </p>
-            <h3 className="mt-3 font-heading text-5xl uppercase tracking-[0.12em] text-white">
-              Featured Links
-            </h3>
-            <div className="mt-6 grid gap-4">
-              <a
-                href="https://www.youtube.com/@1prodvision/featured"
-                target="_blank"
-                rel="noreferrer"
-                className="rounded-[1.5rem] border border-white/10 bg-white/[0.03] px-5 py-5 transition hover:-translate-y-1 hover:border-sand"
-              >
-                <p className="text-xs font-bold uppercase tracking-[0.32em] text-sand/60">
-                  Featured
-                </p>
-                <p className="mt-3 font-heading text-3xl uppercase tracking-[0.12em] text-white">
-                  Channel Highlights
-                </p>
-              </a>
-              <a
-                href="https://www.youtube.com/@1prodvision/videos"
-                target="_blank"
-                rel="noreferrer"
-                className="rounded-[1.5rem] border border-white/10 bg-white/[0.03] px-5 py-5 transition hover:-translate-y-1 hover:border-sand"
-              >
-                <p className="text-xs font-bold uppercase tracking-[0.32em] text-sand/60">
-                  Uploads
-                </p>
-                <p className="mt-3 font-heading text-3xl uppercase tracking-[0.12em] text-white">
-                  Video Releases
-                </p>
-              </a>
-              <a
-                href="https://www.youtube.com/@1prodvision"
-                target="_blank"
-                rel="noreferrer"
-                className="rounded-[1.5rem] border border-white/10 bg-white/[0.03] px-5 py-5 transition hover:-translate-y-1 hover:border-sand"
-              >
-                <p className="text-xs font-bold uppercase tracking-[0.32em] text-sand/60">
-                  Channel
-                </p>
-                <p className="mt-3 font-heading text-3xl uppercase tracking-[0.12em] text-white">
-                  Full YouTube Page
-                </p>
-              </a>
-            </div>
-          </div>
+        <section className="mt-8 grid gap-6 md:grid-cols-2">
+          {visionLinks.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              target="_blank"
+              rel="noreferrer"
+              className="group rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 shadow-velvet transition hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.06]"
+            >
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-[0.36em] text-white/52">
+                    {link.label}
+                  </p>
+                  <h2 className="mt-4 font-heading text-4xl uppercase tracking-[0.12em] text-white">
+                    {link.title}
+                  </h2>
+                </div>
+                <ArrowUpRight className="mt-1 h-5 w-5 text-white/55 transition group-hover:text-white" />
+              </div>
+            </a>
+          ))}
         </section>
       </div>
     </div>

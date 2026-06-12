@@ -30,24 +30,19 @@ export const socials = [
 
 export const serviceCards = [
   {
-    title: "Live Saxophone Performance",
+    title: "Saxophone Artist",
     description:
-      "Jazz, classical, private events, restaurants, bands, and standout featured moments with a modern South Florida feel.",
-  },
-  {
-    title: "Audio Engineering",
-    description:
-      "Live sound, instrumental tracking, studio support, and reliable production workflows for artists and venues.",
+      "South Florida saxophonist whose work spans jazz, rock, funk, and classical performance with equal versatility and artistry.",
   },
   {
     title: "Mixing & Mastering",
     description:
-      "Release-ready polish built around clarity, energy, and the artist's sound rather than cookie-cutter presets.",
+      "Dedicated mix and master engineer known for his meticulous attention to detail and unwavering commitment to delivering polished, emotionally impactful sound.",
   },
   {
     title: "Production & Beats",
     description:
-      "MIDI production, beatmaking, arrangement support, and creative direction for artists building a record.",
+      "Vi$ion is an independent producer recognized for crafting innovative, genre-bending beats that push creative boundaries.",
   },
 ];
 
@@ -157,44 +152,60 @@ export const experienceGroups = [
 
 export const galleryItems = [
   {
+    image: "/images/gallery-img-0527.jpg",
+    alt: "James Blanc performing on stage in a dark suit while playing tenor saxophone under dramatic concert lighting.",
+  },
+  {
     image: "/images/james-sax-portrait.jpg",
-    caption: "Live Performance",
     alt: "James Blanc seated with saxophone in performance attire.",
   },
   {
     image: "/images/studio-session.jpg",
-    caption: "Production Work",
     alt: "James Blanc standing in a recording studio beside monitors and a mixing desk.",
   },
   {
     image: "/images/studio-monochrome.jpg",
-    caption: "Saxophone Portrait",
     alt: "Black and white portrait of James Blanc holding a saxophone.",
   },
   {
     image: "/images/live-performance.jpg",
-    caption: "Behind the Scenes",
     alt: "James Blanc with saxophone in front of a colorful mural.",
   },
   {
     image: "/images/mural-sax.jpg",
-    caption: "Jazz Orchestra",
     alt: "James Blanc looking down at a gold saxophone outdoors.",
   },
   {
     image: "/images/performance-burgundy.jpg",
-    caption: "Featured Solo",
     alt: "James Blanc playing soprano saxophone while seated on stone steps.",
   },
   {
     image: "/images/studio-performance.jpg",
-    caption: "Studio Session",
     alt: "James Blanc playing saxophone in a warmly lit studio.",
   },
   {
     image: "/images/studio-chair.jpg",
-    caption: "Artist Portrait",
     alt: "James Blanc seated in a recording studio with a saxophone.",
+  },
+  {
+    image: "/images/gallery-161-9L7A8675.jpg",
+    alt: "James Blanc seated high above the ground in a burgundy jacket holding his saxophone beneath a bright blue sky.",
+  },
+  {
+    image: "/images/gallery-157-9L7A8630.jpg",
+    alt: "James Blanc standing on railroad tracks with a saxophone under large white clouds.",
+  },
+  {
+    image: "/images/gallery-151-9L7A8609.jpg",
+    alt: "James Blanc standing beside a colorful mural with his saxophone outdoors.",
+  },
+  {
+    image: "/images/gallery-44-GU7A5619.jpg",
+    alt: "James Blanc working at a professional studio console from behind in a dark control room.",
+  },
+  {
+    image: "/images/gallery-116-9L7A8507-jb.jpg",
+    alt: "Black and white close-up photograph of a saxophone mouthpiece and neck with shallow depth of field.",
   },
 ];
 

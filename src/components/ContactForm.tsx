@@ -1,11 +1,62 @@
-import { FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState("");
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    inquiryType: "Booking",
+    message: "",
+  });
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  function handleChange(
+    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) {
+    const { name, value } = event.target;
+    setFormData((current) => ({ ...current, [name]: value }));
+  }
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setSubmitted(true);
+    setSubmitted(false);
+    setError("");
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const payload = (await response.json()) as { error?: string };
+
+      if (!response.ok) {
+        throw new Error(payload.error || "Unable to send your inquiry right now.");
+      }
+
+      setSubmitted(true);
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        inquiryType: "Booking",
+        message: "",
+      });
+    } catch (submitError) {
+      const message =
+        submitError instanceof Error
+          ? submitError.message
+          : "Unable to send your inquiry right now.";
+      setError(message);
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
@@ -17,6 +68,9 @@ export function ContactForm() {
             <input
               required
               type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
               className="rounded-2xl border border-ink/10 bg-cream px-4 py-3 text-base outline-none transition focus:border-coral focus:bg-mist"
               placeholder="Your name"
             />
@@ -26,6 +80,9 @@ export function ContactForm() {
             <input
               required
               type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
               className="rounded-2xl border border-ink/10 bg-cream px-4 py-3 text-base outline-none transition focus:border-coral focus:bg-mist"
               placeholder="you@example.com"
             />
@@ -36,13 +93,21 @@ export function ContactForm() {
             Phone
             <input
               type="tel"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
               className="rounded-2xl border border-ink/10 bg-cream px-4 py-3 text-base outline-none transition focus:border-coral focus:bg-mist"
               placeholder="(561) 699-5411"
             />
           </label>
           <label className="grid gap-2 text-sm font-semibold uppercase tracking-[0.16em] text-ink/75">
             Inquiry Type
-            <select className="rounded-2xl border border-ink/10 bg-cream px-4 py-3 text-base outline-none transition focus:border-coral focus:bg-mist">
+            <select
+              name="inquiryType"
+              value={formData.inquiryType}
+              onChange={handleChange}
+              className="rounded-2xl border border-ink/10 bg-cream px-4 py-3 text-base outline-none transition focus:border-coral focus:bg-mist"
+            >
               <option>Booking</option>
               <option>Studio Work</option>
               <option>Mixing/Mastering</option>
@@ -57,24 +122,28 @@ export function ContactForm() {
           <textarea
             required
             rows={6}
+            name="message"
+            value={formData.message}
+            onChange={handleChange}
             className="rounded-[1.5rem] border border-ink/10 bg-cream px-4 py-3 text-base outline-none transition focus:border-coral focus:bg-mist"
             placeholder="Tell James about your event, session, or project."
           />
         </label>
-        <p className="rounded-2xl border border-dashed border-ink/15 bg-cream px-4 py-3 text-sm leading-7 text-ink/65">
-          Placeholder handler is active here. Connect this form to Formspree,
-          EmailJS, Resend, or a backend API when you're ready to receive live
-          submissions.
-        </p>
         <button
           type="submit"
+          disabled={isSubmitting}
           className="inline-flex w-fit items-center rounded-full bg-coral px-6 py-3 text-sm font-extrabold uppercase tracking-[0.18em] text-white transition hover:-translate-y-1 hover:bg-ink"
         >
-          Send Inquiry
+          {isSubmitting ? "Sending..." : "Send Inquiry"}
         </button>
         {submitted && (
           <p className="rounded-2xl bg-lilac px-4 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-ink">
-            Thanks for reaching out. This demo form is ready for your email integration.
+            Thanks for reaching out. Your inquiry has been sent to James.
+          </p>
+        )}
+        {error && (
+          <p className="rounded-2xl bg-cream px-4 py-3 text-sm font-semibold text-ink/75">
+            {error}
           </p>
         )}
       </form>

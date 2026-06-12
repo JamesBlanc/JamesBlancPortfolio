@@ -73,11 +73,23 @@ To replace images later, keep the same filenames or update the paths in [`siteCo
 
 ## Form Integration
 
-The contact form is currently frontend-only and shows a success state without sending email.
+The contact form already posts to [`/api/contact`](/Users/douglasplummer/Documents/Codex/2026-06-04/files-mentioned-by-the-user-161/api/contact.ts) and sends email through Resend when environment variables are configured.
 
-Integration note:
+Required environment variables:
 
-- Add Formspree, EmailJS, Resend, or your backend API inside [`ContactForm.tsx`](/Users/douglasplummer/Documents/Codex/2026-06-04/files-mentioned-by-the-user-161/src/components/ContactForm.tsx) where the submit handler currently prevents default submission.
+- `RESEND_API_KEY`
+- `CONTACT_FROM_EMAIL`
+- `CONTACT_TO_EMAIL`
+
+Current delivery target:
+
+- `CONTACT_TO_EMAIL=visionaryproductionss@gmail.com`
+
+Important note:
+
+- `CONTACT_FROM_EMAIL` must be a sender address or domain that has been verified inside Resend. The inbox recipient can still be `visionaryproductionss@gmail.com`.
+
+For local or Vercel testing, the form will return a setup error until those variables are present.
 
 ## Deployment Notes
 

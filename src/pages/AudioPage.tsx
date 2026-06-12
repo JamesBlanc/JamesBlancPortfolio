@@ -1,131 +1,91 @@
-import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
 import { useDocumentMeta } from "../hooks/useDocumentMeta";
-import { audioHighlights, siteMeta } from "../data/siteContent";
+import { siteMeta } from "../data/siteContent";
 import { SectionBanner } from "../components/SectionBanner";
-import { CTASection } from "../components/CTASection";
+
+const audioPortfolioTracks = [
+  {
+    title: "Vi$ion x Rubesh - Blue",
+    src: "/audio/vision-x-rubesh-blue.wav",
+  },
+  {
+    title: "Philmycupup - Thoomin",
+    src: "/audio/philmycupup-thoomin.mp3",
+  },
+  {
+    title: "Nate - La Luna",
+    src: "/audio/nate-la-luna.mp3",
+  },
+  {
+    title: "James Blanc - Just the Two of Us",
+    src: "/audio/james-blanc-just-the-two-of-us.mp3",
+  },
+  {
+    title: "Dono - Phrozen",
+    src: "/audio/dono-phrozen.wav",
+  },
+  {
+    title: "Abhorrent Abstraction - Ripped Face",
+    src: "/audio/abhorrent-abstraction-ripped-face.mp3",
+  },
+];
 
 export function AudioPage() {
   useDocumentMeta(
     `Audio | ${siteMeta.defaultTitle}`,
-    "Audio engineering page for James Blanc featuring studio tracking, mixing support, and live sound experience."
+    "Audio engineering portfolio for James Blanc featuring selected works and direct playback."
   );
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-      <SectionBanner
-        eyebrow="Audio"
-        title="Audio Engineering For Sessions, Stages, And Artists"
-        description="A sister page to Vi$ion that focuses on James Blanc's engineering work: studio support, tracking, live sound, and the technical side of bringing music across the finish line."
-      />
+      <SectionBanner eyebrow="Audio" title="Audio Engineering Portfolio" />
 
-      <section className="mt-10 grid gap-10 lg:grid-cols-[1.05fr_0.95fr]">
+      <section className="mt-12 grid gap-8 lg:grid-cols-[0.85fr_1.15fr]">
         <div className="rounded-[2rem] bg-white p-4 shadow-velvet">
           <img
-            src="/images/audio-james-studio.jpg"
-            alt="James Blanc seated in a professional studio surrounded by outboard gear."
-            className="h-full min-h-[430px] w-full rounded-[1.5rem] object-cover"
+            src="/images/audio-portfolio-james.jpg"
+            alt="James Blanc standing in a studio beside speakers and a mixing console."
+            className="h-full min-h-[620px] w-full rounded-[1.5rem] object-cover object-center"
           />
         </div>
-        <div className="space-y-6 rounded-[2rem] bg-white p-8 shadow-velvet">
-          <p className="text-lg leading-8 text-ink/78">
-            James' audio engineering work is built around musical awareness and
-            practical execution. Whether he is tracking instruments, supporting
-            a live room, shaping a mix, or handling production logistics, the
-            focus stays on clarity, feel, and reliability.
-          </p>
-          <p className="text-lg leading-8 text-ink/78">
-            That balance between artist perspective and engineering discipline
-            makes this side of his portfolio distinct from Vi$ion. Audio is
-            about service, translation, and getting the sound to land the right
-            way in the room, the session, and the final playback.
-          </p>
-          <div className="grid gap-4 pt-3">
-            {audioHighlights.map((item) => (
-              <div key={item.title} className="rounded-[1.5rem] bg-mist px-5 py-5">
-                <p className="text-xs font-bold uppercase tracking-[0.34em] text-coral">
-                  {item.title}
-                </p>
-                <p className="mt-3 text-base leading-7 text-ink/72">{item.description}</p>
-              </div>
+
+        <div className="rounded-[2rem] bg-white p-6 shadow-velvet sm:p-8">
+          <div className="border-b border-ink/10 pb-5">
+            <p className="text-xs font-bold uppercase tracking-[0.34em] text-coral">
+              Selected Works
+            </p>
+            <p className="mt-3 max-w-2xl text-base leading-8 text-ink/72">
+              A simplified listening view of James' audio engineering portfolio
+              with direct playback for six featured tracks.
+            </p>
+          </div>
+
+          <div className="mt-6 grid gap-4">
+            {audioPortfolioTracks.map((track, index) => (
+              <article
+                key={track.title}
+                className="rounded-[1.5rem] border border-ink/10 bg-cream px-4 py-4"
+              >
+                <div className="flex flex-col gap-3">
+                  <div className="flex items-start gap-4">
+                    <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-coral text-sm font-extrabold uppercase tracking-[0.08em] text-white">
+                      {index + 1}
+                    </span>
+                    <div className="min-w-0">
+                      <h2 className="font-heading text-3xl uppercase tracking-[0.1em] text-ink">
+                        {track.title}
+                      </h2>
+                    </div>
+                  </div>
+                  <audio controls preload="none" className="w-full">
+                    <source src={track.src} />
+                    Your browser does not support the audio player.
+                  </audio>
+                </div>
+              </article>
             ))}
           </div>
         </div>
       </section>
-
-      <section className="mt-20 grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
-        <div className="rounded-[2rem] bg-white p-7 shadow-velvet">
-          <p className="text-xs font-bold uppercase tracking-[0.34em] text-coral">
-            Experience
-          </p>
-          <h2 className="mt-3 font-heading text-5xl uppercase tracking-[0.12em] text-ink">
-            Studio, Live Sound, Production Support
-          </h2>
-          <p className="mt-4 text-base leading-8 text-ink/72">
-            James has worked across engineering environments that include live
-            sound support, audio internships, production leadership, and
-            artist-facing studio collaboration. The goal is always the same:
-            support the music with technical choices that feel clean and
-            confident.
-          </p>
-          <Link
-            to="/contact"
-            className="mt-7 inline-flex items-center gap-2 text-sm font-extrabold uppercase tracking-[0.18em] text-coral transition hover:gap-3"
-          >
-            Ask About Audio Work
-            <ArrowRight size={16} />
-          </Link>
-        </div>
-        <div className="grid gap-6 sm:grid-cols-2">
-          <div className="rounded-[2rem] bg-white p-4 shadow-velvet">
-            <img
-              src="/images/audio-rack.jpg"
-              alt="Close-up of analog studio equipment and outboard processing gear."
-              className="h-[320px] w-full rounded-[1.5rem] object-cover"
-            />
-          </div>
-          <div className="rounded-[2rem] bg-white p-4 shadow-velvet">
-            <img
-              src="/images/audio-console-wide.jpg"
-              alt="James Blanc working at a large format mixing console in the studio."
-              className="h-[320px] w-full rounded-[1.5rem] object-cover"
-            />
-          </div>
-        </div>
-      </section>
-
-      <section className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        <div className="rounded-[2rem] bg-white p-4 shadow-velvet">
-          <img
-            src="/images/audio-console-hand.jpg"
-            alt="Hand adjusting controls on a studio mixing console."
-            className="h-[260px] w-full rounded-[1.5rem] object-cover"
-          />
-        </div>
-        <div className="rounded-[2rem] bg-white p-4 shadow-velvet">
-          <img
-            src="/images/audio-console-portrait.jpg"
-            alt="Vertical close-up of a mixing console with illuminated meters."
-            className="h-[260px] w-full rounded-[1.5rem] object-cover"
-          />
-        </div>
-        <div className="rounded-[2rem] bg-white p-4 shadow-velvet sm:col-span-2 lg:col-span-1">
-          <img
-            src="/images/audio-rack.jpg"
-            alt="Studio signal chain and rack-mounted audio processors."
-            className="h-[260px] w-full rounded-[1.5rem] object-cover"
-          />
-        </div>
-      </section>
-
-      <div className="mt-20">
-        <CTASection
-          title="Need engineering support for a session or event?"
-          body="Reach out for tracking, mix support, live sound, or collaborative production help."
-          primaryCta={{ label: "Contact James", href: "/contact" }}
-          secondaryCta={{ label: "See Vi$ion", href: "/vision" }}
-        />
-      </div>
     </div>
   );
 }
